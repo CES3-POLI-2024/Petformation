@@ -1,0 +1,45 @@
+<!-- <app-nav-bar></app-nav-bar> -->
+<div class="container-fluid">
+    <div id="divEncabezado">
+        <h1>Ventas</h1>
+        <img src="../../../../assets/calupetslogo.png" alt="Logo Calupets" id="LogoCalupets">
+    </div>
+
+    <!-- <a [routerLink] = "['/proveedores', 'add']">Nuevo Proveedor</a> -->
+    <div class="d-flex justify-content-end mb-3">
+        <a class="btn btn-success" (click)="redirigir()">+ Registrar Venta</a>
+    </div>
+    <div *ngIf="detalles.length === 0">
+        <p>Cargando ventas...</p>
+    </div>
+          <!-- <label>Cédula:</label>
+          <span></span>
+          <label>Cliente:</label>
+          <span></span> -->
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <table *ngIf="detalles.length > 0" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Cédula</th>
+                        <th>Nombre cliente</th>
+                        <th>Producto</th>
+                        <th>Total</th>
+                        <th>Fecha</th>
+                        <th></th>
+                    </tr>
+                </thead>    
+                <tbody>
+                    <tr *ngFor="let detalle of detalles">
+                        <td>{{ detalle.iD_CLIENTE }}</td> 
+                        <td>{{ detalle.nombrE_CLIENTE }}</td>
+                        <td>{{ detalle.nombrE_CALUPRODUCT }}</td>
+                        <td>{{ detalle.graN_TOTAL }}</td>
+                        <td>{{ detalle.timestamP_DETALLE }}</td>
+                        <!-- <td><a [routerLink] = "['/detallesVentas', 'edit', detalle.iD_DETALLE]">Editar</a></td> -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

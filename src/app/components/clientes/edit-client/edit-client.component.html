@@ -1,0 +1,36 @@
+<app-nav-bar></app-nav-bar>
+<div class="container my-5">
+    <h1 class="mb-3">Editar Cliente</h1>
+    <div class="row">
+        <div class="col-6">
+          <button type="button" class="btn btn-danger eliminar" (click)="deleteCliente(clienteDetails.iD_CLIENTE || '')">Eliminar</button>
+            <form #form="ngForm" (ngSubmit)="updateCliente()">
+                <fieldset enabled>
+                    <!-- <div class="mb-3">
+                        <label for="id" class="form-label">Id</label>
+                        <input type="text" id="id" class="form-control" readonly name="iD_CLIENTE" [(ngModel)]="clienteDetails.iD_CLIENTE">
+                    </div> -->
+                  <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre <span style="color: red"></span></label>
+                    <input type="text" id="nombre" class="form-control" placeholder="Nombre" name="nombrE_CLIENTE" [(ngModel)]="clienteDetails.nombrE_CLIENTE">
+                  </div>
+                  <div class="mb-3">
+                    <label for="telefono" class="form-label">Teléfono <span style="color: red"></span></label>
+                    <input type="text" id="telefono" class="form-control" placeholder="Teléfono" name="telefonO_CLIENTE" [(ngModel)]="clienteDetails.telefonO_CLIENTE">
+                  </div>
+                  <div class="mb-3">
+                    <label for="direccion" class="form-label">Dirección</label>
+                    <input type="text" id="direccion" class="form-control" placeholder="Dirección" name="direccioN_CLIENTE" [(ngModel)]="clienteDetails.direccioN_CLIENTE">
+                  </div>
+                  <div class="mb-3">
+                    <label for="email" class="form-label">Correo</label>
+                    <input type="email" id="email" class="form-control" placeholder="Correo" name="correO_CLIENTE" [(ngModel)]="clienteDetails.correO_CLIENTE">
+                  </div>
+                  <button type="submit" class="btn btn-primary enviar">Enviar</button>
+                  
+                </fieldset>
+            </form>
+            
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<app-nav-bar></app-nav-bar>
+<div class="container my-5">
+    <h1 class="mb-3">Editar Mascota</h1>
+    <div class="row">
+        <div class="col-6">
+          <button type="button" class="btn btn-danger eliminar" (click)="deleteMascota(mascotaDetails.iD_MASCOTA!)">Eliminar</button>
+            <form #form="ngForm" (ngSubmit)="updateMascota(mascotaDetails.iD_MASCOTA!)">
+              <fieldset enabled>
+                <div class="mb-3">
+                  <label for="nombre" class="form-label">Nombre <span style="color: red"></span></label>
+                  <input type="text" id="nombre" class="form-control" placeholder="" name="nombrE_MASCOTA" [(ngModel)] = "mascotaDetails.nombrE_MASCOTA">
+                </div>
+                <div class="mb-3">
+                  <label for="tipo" class="form-label">Tipo Mascota <span style="color: red"></span></label>
+                  <select id="tipo" class="form-select" name="tipO_MASCOTA" [(ngModel)]="mascotaDetails.tipO_MASCOTA" required>
+                    <option value="" disabled>Seleccione tipo...</option>
+                    <option value="Perro">Perro</option>
+                    <option value="Gato">Gato</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="raza" class="form-label">Raza <span style="color: red"></span></label>
+                  <input type="text" id="raza" class="form-control" placeholder="" name="razA_MASCOTA" [(ngModel)] = "mascotaDetails.razA_MASCOTA">
+                </div>
+                <div class="mb-3">
+                  <label for="tamaño" class="form-label">Tamaño <span style="color: red"></span></label>
+                  <select id="tamaño" class="form-select" name="tamanO_MASCOTA" [(ngModel)]="mascotaDetails.tamanO_MASCOTA" required>
+                    <option value="" disabled>Seleccione tamaño...</option>
+                    <option value="Pequeño">Pequeño</option>
+                    <option value="Mediano">Mediano</option>                      
+                    <option value="Grande">Grande</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="genero" class="form-label">Género <span style="color: red"></span></label>
+                  <!-- <input type="text" id="genero" class="form-control" placeholder="" name="generO_MASCOTA" [(ngModel)] = "mascotaDetails.generO_MASCOTA"> -->
+                  <select id="genero" class="form-select" name="generO_MASCOTA" [(ngModel)]="mascotaDetails.generO_MASCOTA" required>
+                    <option value="" disabled>Seleccione género...</option>
+                    <option value="Macho">Macho</option>
+                    <option value="Hembra">Hembra</option>                      
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="fecha" class="form-label">Fecha Nacimiento <span style="color: red"></span></label>
+                  <input type="date" id="fecha" class="form-control" placeholder="" name="fechA_NACIMIENTO_MASCOTA" [(ngModel)] = "mascotaDetails.fechA_NACIMIENTO_MASCOTA">
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+              </fieldset>
+            </form>
+            
+        </div>
+    </div>
+</div>

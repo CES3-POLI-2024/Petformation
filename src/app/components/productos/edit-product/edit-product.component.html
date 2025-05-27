@@ -1,0 +1,36 @@
+<app-nav-bar></app-nav-bar>
+<div class="container my-5">
+  <h1 class="mb-3">Editar Producto</h1>
+  <div class="row">
+      <div class="col-6">
+        <button type="button" class="btn btn-danger eliminar" (click)="deleteCliente(productoDetails.iD_PRODUCTO || 0)">Eliminar</button>
+          <form #form="ngForm" (ngSubmit)="updateProducto()">
+              <fieldset enabled>
+                  <!-- <div class="mb-3">
+                      <label for="id" class="form-label">Id</label>
+                      <input type="text" id="id" class="form-control" readonly name="iD_PRODUCTO" [(ngModel)]="productoDetails.iD_PRODUCTO">
+                  </div> -->
+                <div class="mb-3">
+                  <label for="nombre" class="form-label">Nombre <span style="color: red"></span></label>
+                  <input type="text" id="nombre" class="form-control" placeholder="Nombre" name="nombrE_PRODUCTO" [(ngModel)]="productoDetails.nombrE_PRODUCTO">
+                </div>
+                <div class="mb-3">
+                  <label for="tamano" class="form-label">Tamaño <span style="color: red"></span></label>
+                  <input type="text" id="tamano" class="form-control" placeholder="Tamaño" name="tamanO_PRODUCTO" [(ngModel)]="productoDetails.tamanO_PRODUCTO">
+                </div>
+                <div class="mb-3">
+                  <label for="color" class="form-label">Color</label>
+                  <input type="text" id="color" class="form-control" placeholder="Color" name="coloR_PRODUCTO" [(ngModel)]="productoDetails.coloR_PRODUCTO">
+                </div>
+                <div class="mb-3">
+                  <label for="contenido" class="form-label">Contenido <span style="color: red"></span></label>
+                  <input type="text" id="contenido" class="form-control" placeholder="Contenido" name="contenidO_PRODUCTO" [(ngModel)]="productoDetails.contenidO_PRODUCTO">
+                </div>
+                <button type="submit" class="btn btn-primary enviar">Enviar</button>
+                
+              </fieldset>
+          </form>
+          
+      </div>
+  </div>
+</div>

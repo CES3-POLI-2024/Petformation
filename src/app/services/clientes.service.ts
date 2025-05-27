@@ -18,6 +18,19 @@ export class ClientesService {
   }
 
   addClienteMethod(addCliente: Cliente): Observable<Cliente>{
+    //addCliente.iD_CLIENTE = 0;
     return this.http.post<Cliente>(this.baseApiUrl+'/api/Clientes', addCliente);
+  }
+
+  getCliente(idCliente: string): Observable<Cliente>{
+    return this.http.get<Cliente>(this.baseApiUrl+'/api/Clientes/'+ idCliente);
+  }
+
+  updateCliente(idCliente: string, updateClienteRequest: Cliente): Observable<Cliente>{
+    return this.http.put<Cliente>(this.baseApiUrl+'/api/Clientes/'+ idCliente, updateClienteRequest);
+  }
+
+  deleteCliente(idCliente: string): Observable<Cliente>{
+    return this.http.delete<Cliente>(this.baseApiUrl+'/api/Clientes/'+ idCliente);
   }
 }

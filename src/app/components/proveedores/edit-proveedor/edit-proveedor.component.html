@@ -1,0 +1,50 @@
+<app-nav-bar></app-nav-bar>
+<div class="container my-5">
+  <h1 class="mb-3">Editar Proveedor</h1>
+  <div class="row">
+      <div class="col-6">
+        <button type="button" class="btn btn-danger eliminar" (click)="deleteProveedor(proveedorDetails.iD_PROVEEDOR || 0)">Eliminar</button>
+          	<form #form="ngForm" (ngSubmit)="updateProveedor()">
+              <fieldset enabled>
+                  <!-- <div class="mb-3">
+                      <label for="id" class="form-label">Id</label>
+                      <input type="text" id="id" class="form-control" readonly name="iD_PROVEEDOR" [(ngModel)]="proveedorDetails.iD_PROVEEDOR">
+                  </div> -->
+                  <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre <span style="color: red"></span></label>
+                    <input type="text" id="nombre" class="form-control" placeholder="Nombre" name="nombrE_PROVEEDOR" [(ngModel)]="proveedorDetails.nombrE_PROVEEDOR">
+                  </div>
+                  <div class="mb-3">
+                    <label for="contacto" class="form-label">Contacto</label>
+                    <input type="text" id="contacto" class="form-control" placeholder="Contacto" name="contactO_PROVEEDOR" [(ngModel)]="proveedorDetails.contactO_PROVEEDOR">
+                  </div>
+                  <div class="mb-3">
+                    <label for="telefono" class="form-label">Teléfono</label>
+                    <input type="text" id="telefono" class="form-control" placeholder="Teléfono" name="telefonO_PROVEEDOR" [(ngModel)]="proveedorDetails.telefonO_PROVEEDOR">
+                  </div>
+                  <div class="mb-3">
+                    <label for="email" class="form-label">Correo</label>
+                    <input type="email" id="email" class="form-control" placeholder="Correo" name="correO_PROVEEDOR" [(ngModel)]="proveedorDetails.correO_PROVEEDOR">
+                  </div>
+                  <div class="mb-3">
+                    <label for="direccion" class="form-label">Dirección</label>
+                    <input type="text" id="direccion" class="form-control" placeholder="Dirección" name="direccioN_PROVEEDOR" [(ngModel)]="proveedorDetails.direccioN_PROVEEDOR">
+                  </div>
+                  <div class="mb-3">
+                    <label for="producto" class="form-label">Producto <span style="color: red"></span></label>
+                    <!-- <input type="text" id="producto" class="form-control" placeholder="Producto" name="direccioN_PROVEEDOR" [(ngModel)]="proveedorDetails.direccioN_PROVEEDOR"> -->
+                    <select id="producto" class="form-select" name="iD_PRODUCTO" [(ngModel)]="proveedorDetails.iD_PRODUCTO" required>
+                      <option value="{{ producto.iD_PRODUCTO }}" *ngFor="let producto of productos">
+                        {{ producto.nombrE_PRODUCTO }}
+                      </option>
+                    </select>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary enviar">Enviar</button>
+                
+              </fieldset>
+          </form>
+          
+      </div>
+  </div>
+</div>

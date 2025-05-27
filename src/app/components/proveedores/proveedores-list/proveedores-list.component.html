@@ -1,0 +1,46 @@
+<app-nav-bar></app-nav-bar>
+<div class="container-fluid">
+    <div id="divEncabezado">
+        <h1>Proveedores</h1>
+        <img src="../../../../assets/calupetslogo.png" alt="Logo Calupets" id="LogoCalupets">
+    </div>
+
+    <!-- <a [routerLink] = "['/proveedores', 'add']">Nuevo Proveedor</a> -->
+    <div class="d-flex justify-content-end mb-3">
+        <a class="btn btn-success" (click)="redirigir()">+ Agregar Proveedor</a>
+    </div>
+    <div *ngIf="proveedores.length === 0">
+        <p>Cargando proveedores...</p>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <table *ngIf="proveedores.length > 0" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <!-- <th>Id</th> -->
+                        <th>Nombre</th>
+                        <th>Contacto</th>
+                        <th>Telefono</th>
+                        <th>Correo</th>
+                        <th>Direccion</th>
+                        <th>Producto</th>
+                        <th></th>
+                    </tr>
+                </thead>    
+                <tbody>
+                    <tr *ngFor="let proveedor of proveedores">
+                        <!-- <td>{{ proveedor.iD_PROVEEDOR }}</td>  -->
+                        <td>{{ proveedor.nombrE_PROVEEDOR }}</td>
+                        <td>{{ proveedor.contactO_PROVEEDOR }}</td>
+                        <td>{{ proveedor.telefonO_PROVEEDOR }}</td>
+                        <td>{{ proveedor.correO_PROVEEDOR }}</td>
+                        <td>{{ proveedor.direccioN_PROVEEDOR }}</td>
+                        <td>{{ nombresProductos[proveedor.iD_PRODUCTO?.toString() || ''] || 'Cargando...' }}</td>
+                        <td><a [routerLink] = "['/proveedores', 'edit', proveedor.iD_PROVEEDOR]">Editar</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

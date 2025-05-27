@@ -1,29 +1,45 @@
-
+<app-nav-bar></app-nav-bar>
 <div class="container-fluid">
-    <h1>Clientes</h1>
+    <div id="divEncabezado">
+        <h1>Clientes</h1>
+        <img src="../../../../assets/calupetslogo.png" alt="Logo Calupets" id="LogoCalupets">
+    </div>
 
+    <!-- <button class="btn btn-primary">Agregar</button> -->
+
+    <div class="d-flex justify-content-end mb-3">
+        <a class="btn btn-success" (click)="redirigir()">+ Agregar Cliente</a>
+    </div>
+      
     <div *ngIf="clientes.length === 0">
         <p>Cargando clientes...</p>
     </div>
-
-    <table *ngIf="clientes.length > 0" class="table table-dark table-striped">
-        <thead>
-            <tr>
-                <th>Cédula</th>
-                <th>Nombre</th>
-                <th>Teléfono</th>
-                <th>Dirección</th>
-                <th>Correo</th>
-            </tr>
-        </thead>    
-        <tbody>
-            <tr *ngFor="let cliente of clientes">
-                <td>{{ cliente.cedulA_CLIENTE }}</td>
-                <td>{{ cliente.nombrE_CLIENTE }}</td>
-                <td>{{ cliente.telefonO_CLIENTE }}</td>
-                <td>{{ cliente.direccioN_CLIENTE }}</td>
-                <td>{{ cliente.correO_CLIENTE }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <table *ngIf="clientes.length > 0" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Cédula</th>
+                        <th>Nombre</th>
+                        <th>Teléfono</th>
+                        <th>Dirección</th>
+                        <th>Correo</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>    
+                <tbody>
+                    <tr *ngFor="let cliente of clientes">
+                        <td>{{ cliente.iD_CLIENTE }}</td>
+                        <td>{{ cliente.nombrE_CLIENTE }}</td>
+                        <td>{{ cliente.telefonO_CLIENTE }}</td>
+                        <td>{{ cliente.direccioN_CLIENTE }}</td>
+                        <td>{{ cliente.correO_CLIENTE }}</td>
+                        <td><a [routerLink] = "['/mascotasByClient', 'mascotas', cliente.iD_CLIENTE]">Mascotas</a></td>
+                        <td><a [routerLink] = "['/clientes', 'edit', cliente.iD_CLIENTE]">Editar</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>

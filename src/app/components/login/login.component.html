@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <form class="login-container" (submit)="onSubmit()">
+        <h2>Login</h2>
+        <input type="email" id="username" placeholder="Correo" required>
+        <input [type]="type" id="password" placeholder="Contraseña" required>
+        <div class="options">
+            <label><input type="checkbox" (click)="showPassword()"> Mostrar Contraseña</label>
+        </div>
+        <button type="submit">LOGIN</button>
+    </form>
+</body>
+</html>

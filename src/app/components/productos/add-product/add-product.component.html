@@ -1,0 +1,29 @@
+<app-nav-bar></app-nav-bar>
+<div class="container my-5">
+  <h1 class="mb-3">Agregar Producto</h1>
+  <div class="row">
+      <div class="col-6">
+          <form #form="ngForm" (ngSubmit)="addProductoMethod()">
+              <fieldset enabled>
+                <div class="mb-3">
+                  <label for="nombre" class="form-label">Nombre <span style="color: red"></span></label>
+                  <input type="text" id="nombre" class="form-control" placeholder="Nombre" name="nombrE_PRODUCTO" [(ngModel)] = "addProducto.nombrE_PRODUCTO">
+                </div>
+                <div class="mb-3">
+                  <label for="tamano" class="form-label">Tamaño <span style="color: red"></span></label>
+                  <input type="text" id="tamano" class="form-control" placeholder="Tamano" name="tamanO_PRODUCTO" [(ngModel)] = "addProducto.tamanO_PRODUCTO">
+                </div>
+                <div class="mb-3">
+                  <label for="color" class="form-label">Color</label>
+                  <input type="text" id="color" class="form-control" placeholder="Color" name="coloR_PRODUCTO" [(ngModel)] = "addProducto.coloR_PRODUCTO">
+                </div>
+                <div class="mb-3">
+                  <label for="contenido" class="form-label">Contenido <span style="color: red"></span></label>
+                  <input type="text" id="contenido" class="form-control" placeholder="Contenido" name="contenidO_PRODUCTO" [(ngModel)] = "addProducto.contenidO_PRODUCTO">
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+              </fieldset>
+          </form>
+      </div>
+  </div>
+</div>

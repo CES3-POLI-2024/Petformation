@@ -1,0 +1,46 @@
+<app-nav-bar></app-nav-bar>
+<div class="container-fluid">
+    <div id="divEncabezado">
+        <h1>Mascotas</h1>
+        <img src="../../../../assets/calupetslogo.png" alt="Logo Calupets" id="LogoCalupets">
+    </div>
+
+    <!-- <button class="btn btn-primary">Agregar</button> -->
+
+    <div class="d-flex justify-content-end mb-3">
+        <a class="btn btn-success" (click)="redirigir()">+ Agregar Mascota</a>
+    </div>
+
+    <div *ngIf="mascotas.length === 0">
+        <p>Cargando mascotas...</p>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <table *ngIf="mascotas.length > 0" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Tipo Mascota</th>
+                        <th>Raza</th>
+                        <th>Tamaño</th>
+                        <th>Género</th>
+                        <th>Fecha nacimiento</th>
+                        <th></th>
+                    </tr>
+                </thead>    
+                <tbody>
+                    <tr *ngFor="let mascota of mascotas">
+                        <td>{{ mascota.nombrE_MASCOTA }}</td>
+                        <td>{{ mascota.tipO_MASCOTA }}</td>
+                        <td>{{ mascota.razA_MASCOTA }}</td>
+                        <td>{{ mascota.tamanO_MASCOTA }}</td>
+                        <td>{{ mascota.generO_MASCOTA }}</td>
+                        <td>{{ mascota.fechA_NACIMIENTO_MASCOTA | date:'dd/MM/yyyy' }}</td>
+                        <td><a [routerLink] = "['/mascotas', 'edit', mascota.iD_MASCOTA]">Editar</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

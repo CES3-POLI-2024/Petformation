@@ -1,0 +1,44 @@
+<app-nav-bar></app-nav-bar>
+<div class="container-fluid">
+  <div id="divEncabezado">
+      <h1>Productos</h1>
+      <img src="../../../../assets/calupetslogo.png" alt="Logo Calupets" id="LogoCalupets">
+  </div>
+
+  <!-- <button class="btn btn-primary">Agregar</button> -->
+
+  <div class="d-flex justify-content-end mb-3">
+      <a class="btn btn-success" (click)="redirigir()">+ Agregar Producto</a>
+  </div>
+
+  <div *ngIf="productos.length === 0">
+      <p>Cargando productos...</p>
+  </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <table *ngIf="productos.length > 0" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <!-- <th>Id</th> -->
+                        <th>Nombre</th>
+                        <th>Tamaño</th>
+                        <th>Color</th>
+                        <th>Contenido</th>
+                        <th></th>
+                    </tr>
+                </thead>    
+                <tbody>
+                    <tr *ngFor="let producto of productos">
+                        <!-- <td>{{ producto.iD_PRODUCTO }}</td>  -->
+                        <td>{{ producto.nombrE_PRODUCTO }}</td>
+                        <td>{{ producto.tamanO_PRODUCTO }}</td>
+                        <td>{{ producto.coloR_PRODUCTO }}</td>
+                        <td>{{ producto.contenidO_PRODUCTO }}</td>
+                        <td><a [routerLink] = "['/productos', 'edit', producto.iD_PRODUCTO]">Editar</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
