@@ -16,6 +16,9 @@ import { EdtMascotaComponent } from './components/mascotas/edit-mascota/edt-masc
 import { DetallesListComponent } from './components/detalles/detalles-list/detalles-list.component';
 import { AddDetalleComponent } from './components/detalles/add-detalle/add-detalle.component';
 import { CaluproductsListComponent } from './components/caluproducts/caluproducts-list/caluproducts-list.component';
+import { AddCaluproductComponent } from './components/caluproducts/add-caluproduct/add-caluproduct.component';
+import { EditCaluproductComponent } from './components/caluproducts/edit-caluproduct/edit-caluproduct.component';
+import { VentasListComponent } from './components/ventas/ventas-list/ventas-list.component';
 
 const routes: Routes = [
   {
@@ -75,7 +78,7 @@ const routes: Routes = [
     component: EdtMascotaComponent
   },
   {
-    path:'detallesVentas',
+    path:'detallesVentas/ventas/:id',
     component: DetallesListComponent
   },
   {
@@ -85,6 +88,18 @@ const routes: Routes = [
   {
     path:'caluproducts',
     component: CaluproductsListComponent
+  },
+  {
+    path:'caluproducts/add',
+    component: AddCaluproductComponent
+  },
+  {
+    path:'caluproducts/edit/:id',
+    component: EditCaluproductComponent
+  },
+  {
+    path:'ventas',
+    component: VentasListComponent
   },
 ];
 

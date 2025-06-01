@@ -26,9 +26,13 @@ import { EdtMascotaComponent } from './components/mascotas/edit-mascota/edt-masc
 import { DeleteMascotaComponent } from './components/mascotas/delete-mascota/delete-mascota.component';
 
 import { CaluproductsListComponent } from './components/caluproducts/caluproducts-list/caluproducts-list.component';
+import { AddCaluproductComponent } from './components/caluproducts/add-caluproduct/add-caluproduct.component';
+import { EditCaluproductComponent } from './components/caluproducts/edit-caluproduct/edit-caluproduct.component';
 
 import { DetallesListComponent } from './components/detalles/detalles-list/detalles-list.component';
 import { AddDetalleComponent } from './components/detalles/add-detalle/add-detalle.component';
+
+import { VentasListComponent } from './components/ventas/ventas-list/ventas-list.component';
 
 
 @NgModule({
@@ -51,8 +55,11 @@ import { AddDetalleComponent } from './components/detalles/add-detalle/add-detal
     EdtMascotaComponent,
     DeleteMascotaComponent,
     CaluproductsListComponent,
+    AddCaluproductComponent,
+    EditCaluproductComponent,
     DetallesListComponent,
-    AddDetalleComponent
+    AddDetalleComponent,
+    VentasListComponent
   ],
   imports: [
     BrowserModule,

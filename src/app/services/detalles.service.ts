@@ -22,8 +22,8 @@ constructor(private http: HttpClient) { }
     return this.http.post<Detalle[]>(this.baseApiUrl+'/api/Detalles', addDetalle);
   }
 
-  getDetalleVenta(idDetalle: string): Observable<Detalle>{
-    return this.http.get<Detalle>(this.baseApiUrl+'/api/Detalles/'+ idDetalle);
+  getDetalleVenta(idDetalle: string): Observable<Detalle[]>{
+    return this.http.get<Detalle[]>(this.baseApiUrl+'/api/Detalles/'+ idDetalle);
   }
 
   updateDetalleVenta(idDetalle: string, updateProveedorRequest: Detalle): Observable<Detalle>{

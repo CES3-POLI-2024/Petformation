@@ -1,0 +1,32 @@
+<app-nav-bar></app-nav-bar>
+<div class="container my-5">
+  <h1 class="mb-3">Editar Producto</h1>
+  <div class="row">
+      <div class="col-6">
+        <button type="button" class="btn btn-danger eliminar" (click)="deleteCaluproduct(caluproductDetails.iD_CALUPRODUCT || 0)">Eliminar</button>
+          <form #form="ngForm" (ngSubmit)="updateCaluproduct()">
+              <fieldset enabled>
+                <div class="mb-3">
+                  <label for="nombre" class="form-label">Nombre <span style="color: red"></span></label>
+                  <input type="text" id="nombre" class="form-control" placeholder="Nombre" name="nombrE_CALUPRODUCT" [(ngModel)]="caluproductDetails.nombrE_CALUPRODUCT">
+                </div>
+                <div class="mb-3">
+                  <label for="tamano" class="form-label">Tamaño <span style="color: red"></span></label>
+                  <input type="text" id="tamano" class="form-control" placeholder="Tamaño" name="tamanO_CALUPRODUCT" [(ngModel)]="caluproductDetails.tamanO_CALUPRODUCT">
+                </div>
+                <div class="mb-3">
+                  <label for="caracteristica" class="form-label">Caracteristica</label>
+                  <input type="text" id="caracteristica" class="form-control" placeholder="Caracteristica" name="caracteristicA_CALUPRODUCT" [(ngModel)]="caluproductDetails.caracteristicA_CALUPRODUCT">
+                </div>
+                <div class="mb-3">
+                  <label for="precio" class="form-label">Precio <span style="color: red"></span></label>
+                  <input type="text" id="precio" class="form-control" placeholder="Precio" name="preciO_CALUPRODUCT" [(ngModel)]="caluproductDetails.preciO_CALUPRODUCT">
+                </div>
+                <button type="submit" class="btn btn-primary enviar">Enviar</button>
+                
+              </fieldset>
+          </form>
+          
+      </div>
+  </div>
+</div>

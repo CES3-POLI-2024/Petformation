@@ -3,13 +3,9 @@
   <h1 class="mb-3">Editar Insumo</h1>
   <div class="row">
       <div class="col-6">
-        <button type="button" class="btn btn-danger eliminar" (click)="deleteCliente(productoDetails.iD_PRODUCTO || 0)">Eliminar</button>
+        <button type="button" class="btn btn-danger eliminar" (click)="deleteProducto(productoDetails.iD_PRODUCTO || 0)">Eliminar</button>
           <form #form="ngForm" (ngSubmit)="updateProducto()">
               <fieldset enabled>
-                  <!-- <div class="mb-3">
-                      <label for="id" class="form-label">Id</label>
-                      <input type="text" id="id" class="form-control" readonly name="iD_PRODUCTO" [(ngModel)]="productoDetails.iD_PRODUCTO">
-                  </div> -->
                 <div class="mb-3">
                   <label for="nombre" class="form-label">Nombre <span style="color: red"></span></label>
                   <input type="text" id="nombre" class="form-control" placeholder="Nombre" name="nombrE_PRODUCTO" [(ngModel)]="productoDetails.nombrE_PRODUCTO">

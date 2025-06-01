@@ -1,45 +1,42 @@
 <app-nav-bar></app-nav-bar>
 <div class="container-fluid">
     <div id="divEncabezado">
-        <h1>Ventas</h1>
+        <h1>Detalle Venta</h1>
         <img src="../../../../assets/calupetslogo.png" alt="Logo Calupets" id="LogoCalupets">
     </div>
 
-    <!-- <a [routerLink] = "['/proveedores', 'add']">Nuevo Proveedor</a> -->
+    <div id="">
+        <h2>{{ nombreCliente }}</h2>        
+    </div>
+
     <div class="d-flex justify-content-end mb-3">
-        <a class="btn btn-success" (click)="redirigir()">+ Registrar Venta</a>
+        <a class="btn btn-success" (click)="generarPDF()">Generar PDF</a>
     </div>
     <div *ngIf="detalles.length === 0">
         <p>Cargando ventas...</p>
     </div>
-          <!-- <label>Cédula:</label>
-          <span></span>
-          <label>Cliente:</label>
-          <span></span> -->
+
     <div class="card shadow-sm">
         <div class="card-body">
             <table *ngIf="detalles.length > 0" class="table table-bordered table-hover">
                 <thead>
                     <tr>
-                        <th>Cédula</th>
-                        <th>Nombre cliente</th>
                         <th>Producto</th>
-                        <th>Total</th>
-                        <th>Fecha</th>
-                        <th></th>
+                        <th>Precio</th>
+                        
                     </tr>
                 </thead>    
                 <tbody>
                     <tr *ngFor="let detalle of detalles">
-                        <td>{{ detalle.iD_CLIENTE }}</td> 
-                        <td>{{ detalle.nombrE_CLIENTE }}</td>
-                        <td>{{ detalle.nombrE_CALUPRODUCT }}</td>
-                        <td>{{ detalle.graN_TOTAL }}</td>
-                        <td>{{ detalle.timestamP_DETALLE }}</td>
+                        <td>{{ nombresVentas[detalle.iD_CALUPRODUCT?.toString() || ''] || 'Cargando...' }}</td>
+                        <td>{{ detalle.totaL_DETALLE }}</td>
                         <!-- <td><a [routerLink] = "['/detallesVentas', 'edit', detalle.iD_DETALLE]">Editar</a></td> -->
-                    </tr>
-                </tbody>
+                    </tr>                   
+                </tbody>                
             </table>
+            <div id="totalDiv">
+                <span>TOTAL= $ {{ totalProductos }}</span>
+            </div>
         </div>
     </div>
 </div>

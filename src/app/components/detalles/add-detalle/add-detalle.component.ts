@@ -361,7 +361,7 @@ export class AddDetalleComponent implements OnInit {
           this.detallesService.addDetalleVenta(detallesParaGuardar).subscribe({
             next: () => {
               alert('Venta registrada exitosamente');
-              this.router.navigate(['/detallesVentas']);
+              this.router.navigate(['/ventas']);
             },
             error: (err) => {
               console.error('Error al guardar detalles', err);

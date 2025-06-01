@@ -4,6 +4,7 @@ export interface Detalle {
     iD_VENTA?: string;
     cantidaD_DETALLE?: string;
     iD_CALUPRODUCT?: string;
+    totaL_DETALLE?: string;
 
     iD_CLIENTE?: string;
     nombrE_CLIENTE?: string;

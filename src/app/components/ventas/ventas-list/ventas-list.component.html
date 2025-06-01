@@ -1,0 +1,52 @@
+<app-nav-bar></app-nav-bar>
+<div class="container-fluid">
+    <div id="divEncabezado">
+        <h1>Ventas</h1>
+        <img src="../../../../assets/calupetslogo.png" alt="Logo Calupets" id="LogoCalupets">
+    </div>
+
+    <!-- <a [routerLink] = "['/proveedores', 'add']">Nuevo Proveedor</a> -->
+    <div class="d-flex justify-content-end mb-3">
+        <a class="btn btn-success" (click)="redirigir()">+ Registrar Venta</a>        
+    </div>
+
+<select [(ngModel)]="mesSeleccionado">
+  <option *ngFor="let m of meses; let i = index" [value]="i">{{ m }}</option>
+</select>
+
+<select [(ngModel)]="anioSeleccionado">
+  <option *ngFor="let a of anios" [value]="a">{{ a }}</option>
+</select>
+
+<button (click)="generarPDF()" class="btn btn-success btnGenerar">Generar PDF</button>
+
+    <div *ngIf="ventas.length === 0">
+        <p>Cargando ventas...</p>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <table *ngIf="ventas.length > 0" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Cédula</th>
+                        <th>Nombre cliente</th>
+                        <th>Total</th>
+                        <th>Fecha</th>
+                        <th></th>
+                    </tr>
+                </thead>    
+                <tbody>
+                    <tr *ngFor="let venta of ventas">
+                        <td>{{ venta.iD_CLIENTE }}</td> 
+                        <!-- <td>{{ venta.nombrE_CLIENTE }}</td> -->
+                        <td>{{ nombresClientes[venta.iD_CLIENTE?.toString() || ''] || 'Cargando...' }}</td>
+                        <td>{{ venta.graN_TOTAL }}</td>
+                        <td>{{ venta.timestamP_VENTA }}</td>
+                        <td><a [routerLink] = "['/detallesVentas', 'ventas', venta.iD_VENTA]">Detalles</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

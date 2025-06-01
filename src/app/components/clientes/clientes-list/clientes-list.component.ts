@@ -2,6 +2,7 @@ import cli from '@angular/cli';
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from 'src/app/models/clientes.model';
 import { ClientesService } from 'src/app/services/clientes.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,20 +13,31 @@ import { Router } from '@angular/router';
 export class ClientesListComponent implements OnInit {
 
 clientes: Cliente[]=[];
+logged: boolean = false;
 
-  constructor(private clientesService: ClientesService, private router: Router) { }
+  constructor(private clientesService: ClientesService, private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.clientesService.getAllClientes()
+    this.authService.GetLoggedStatus()
     .subscribe({
-      next: (clientes) => {
-        console.log(clientes);
-        this.clientes = clientes;
-      },
-      error: (response) => {
-        console.log(response);
+      next:(log: boolean) =>{
+        this.logged = log
+
+        if(this.logged){
+          this.clientesService.getAllClientes()
+          .subscribe({
+            next: (clientes) => {
+              console.log(clientes);
+              this.clientes = clientes;
+            },
+            error: (response) => {
+              console.log(response);
+            }
+          })
+        }
       }
     })
+
   }
 
   redirigir() {

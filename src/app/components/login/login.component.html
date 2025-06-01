@@ -6,14 +6,40 @@
     <title>Login</title>
 </head>
 <body>
-    <form class="login-container" (submit)="onSubmit()">
+    <!-- <form class="login-container" (ngSubmit)="onSubmit()">
         <h2>Login</h2>
-        <input type="email" id="username" placeholder="Correo" required>
-        <input [type]="type" id="password" placeholder="Contraseña" required>
+        <input type="text" name="username" [(ngModel)]="username" id="username" placeholder="Usuario" required>
+        <input [type]="type" name="password" [(ngModel)]="password" id="password" placeholder="Contraseña" required>
         <div class="options">
             <label><input type="checkbox" (click)="showPassword()"> Mostrar Contraseña</label>
         </div>
         <button type="submit">LOGIN</button>
+    </form> -->
+    <form class="login-container" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+        <h2>Login</h2>
+
+        <input type="text"
+                name="username"
+                [(ngModel)]="loginData.username"
+                id="username"
+                placeholder="Correo"
+                required>
+
+        <input [type]="type"
+                name="password"
+                [(ngModel)]="loginData.password"
+                id="password"
+                placeholder="Contraseña"
+                required>
+
+        <div class="options">
+            <label>
+            <input type="checkbox" (click)="showPassword()"> Mostrar Contraseña
+            </label>
+        </div>
+
+        <button type="submit">LOGIN</button>
     </form>
+
 </body>
 </html>

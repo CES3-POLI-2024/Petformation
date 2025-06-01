@@ -48,7 +48,7 @@ export class EditProductComponent implements OnInit {
     }
   }
 
-  deleteCliente(id: number){
+  deleteProducto(id: number){
     if (id && id !== undefined) {
       var converter = (id).toString();
       this.productoService.deleteProducto(converter).subscribe({

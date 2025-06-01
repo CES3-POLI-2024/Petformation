@@ -1,3 +1,41 @@
-<p>
-  caluproducts-list works!
-</p>
+<app-nav-bar></app-nav-bar>
+<div class="container-fluid">
+  <div id="divEncabezado">
+      <h1>Productos</h1>
+      <img src="../../../../assets/calupetslogo.png" alt="Logo Calupets" id="LogoCalupets">
+  </div>
+
+  <!-- <button class="btn btn-primary">Agregar</button> -->
+
+  <div class="d-flex justify-content-end mb-3">
+      <a class="btn btn-success" (click)="redirigir()">+ Agregar Producto</a>
+  </div>
+
+  <div *ngIf="caluproducts.length === 0">
+      <p>Cargando Productos...</p>
+  </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <table *ngIf="caluproducts.length > 0" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Nombre Producto</th>
+                        <th>Tamaño</th>
+                        <th>Características</th>
+                        <th>Precio</th>
+                    </tr>
+                </thead>    
+                <tbody>
+                    <tr *ngFor="let caluproduct of caluproducts">
+                        <td>{{ caluproduct.nombrE_CALUPRODUCT }}</td>
+                        <td>{{ caluproduct.tamanO_CALUPRODUCT }}</td>
+                        <td>{{ caluproduct.caracteristicA_CALUPRODUCT }}</td>
+                        <td>{{ caluproduct.preciO_CALUPRODUCT }}</td>
+                        <td><a [routerLink] = "['/caluproducts', 'edit', caluproduct.iD_CALUPRODUCT]">Editar</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
-
+import { Router } from '@angular/router';
+import { Login } from 'src/app/models/login';
 
 @Component({
   selector: 'app-login',
@@ -11,11 +12,14 @@ export class LoginComponent implements OnInit {
 
   type: string = "password";
   isText: boolean = false;
-  username = '';
-  password = '';
+  loginData: Login = {
+    username: '',
+    password: '',
+    logged: false
+  };
   errorMessage = '';
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -26,13 +30,13 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.authService.login(this.username, this.password).subscribe({
+    this.authService.login(this.loginData).subscribe({
       next: (response) => {
         console.log('Login exitoso:', response);
-        // Guarda el token en el almacenamiento local o redirige
+        this.router.navigate(['/clientes']);
       },
       error: (error) => {
-        this.errorMessage = 'Login failed. Please check your credentials.';
+        this.errorMessage = 'Usuario o contraseña incorrectos';
         console.error('Error de login:', error);
       }
     });
