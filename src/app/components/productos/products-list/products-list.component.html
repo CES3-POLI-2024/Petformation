@@ -1,18 +1,18 @@
 <app-nav-bar></app-nav-bar>
 <div class="container-fluid">
   <div id="divEncabezado">
-      <h1>Productos</h1>
+      <h1>Insumos</h1>
       <img src="../../../../assets/calupetslogo.png" alt="Logo Calupets" id="LogoCalupets">
   </div>
 
   <!-- <button class="btn btn-primary">Agregar</button> -->
 
   <div class="d-flex justify-content-end mb-3">
-      <a class="btn btn-success" (click)="redirigir()">+ Agregar Producto</a>
+      <a class="btn btn-success" (click)="redirigir()">+ Agregar Insumo</a>
   </div>
 
   <div *ngIf="productos.length === 0">
-      <p>Cargando productos...</p>
+      <p>Cargando Insumos...</p>
   </div>
 
     <div class="card shadow-sm">

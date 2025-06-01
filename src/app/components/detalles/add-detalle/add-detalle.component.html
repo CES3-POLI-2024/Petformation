@@ -1,3 +1,53 @@
-<p>
-  add-detalle works!
-</p>
+<app-nav-bar></app-nav-bar>
+<div class="container my-5">
+    <h1 class="mb-3">Registrar Venta</h1>
+
+    <div class="row">
+        <div class="col-6">
+            <form #form="ngForm" (ngSubmit)="addDetalleMethod()">
+                <fieldset enabled>
+                  <div class="mb-3">
+                    <label for="cedula" class="form-label">Cédula <span style="color: red"></span></label>
+                    <input
+                      type="text"
+                      name="iD_CLIENTE"
+                      [(ngModel)]="addDetalle.iD_CLIENTE"
+                      (keydown.enter)="verificarCliente($event)"
+                      class="form-control"
+                      placeholder="Cédula del cliente" />
+                    <!-- <input type="text" id="cedula" class="form-control" placeholder="" name="iD_CLIENTE" [(ngModel)] = "addDetalle.iD_CLIENTE" required> -->
+                    <!-- <div *ngIf="clienteExistente" class="invalid-feedback d-block">
+                      El cliente ya existe
+                    </div> -->
+                  </div>
+                  <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre <span style="color: red"></span></label>
+                    <input type="text" id="nombre" class="form-control" placeholder="" name="nombrE_CLIENTE" [(ngModel)] = "addDetalle.nombrE_CLIENTE" required>
+                  </div>
+
+                <div class="mb-3">
+                  <label for="caluproduct" class="form-label">Producto <span style="color: red"></span></label>
+                  <select id="caluproduct" class="form-select" name="iD_CALUPRODUCT" [(ngModel)]="addDetalle.iD_CALUPRODUCT" required>
+                    <option value="" disabled>Seleccione producto...</option>
+                    <option value="{{ caluproduct.iD_CALUPRODUCT }}" *ngFor="let caluproduct of caluproducts">
+                      {{ caluproduct.nombrE_CALUPRODUCT }}
+                    </option>
+                  </select>
+                    <button type="button" class="btn btn-primary mt-2" (click)="agregarProducto()">Agregar</button>
+                </div>
+
+                <div class="mb-3" id="listProducts">
+                    <span *ngFor="let producto of productosAgregados" class="badge bg-secondary me-1">
+                      {{ producto.nombrE_CALUPRODUCT }} - {{ producto.preciO_CALUPRODUCT }}
+                    </span>
+                </div>
+                  <div class="mb-3">
+                    <label for="total" class="form-label">Total <span style="color: red"></span></label>
+                    <input type="text" id="total" class="form-control" placeholder="" name="graN_TOTAL" [(ngModel)] = "addDetalle.graN_TOTAL" required>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Enviar</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

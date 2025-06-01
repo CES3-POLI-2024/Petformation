@@ -28,6 +28,7 @@ import { DeleteMascotaComponent } from './components/mascotas/delete-mascota/del
 import { CaluproductsListComponent } from './components/caluproducts/caluproducts-list/caluproducts-list.component';
 
 import { DetallesListComponent } from './components/detalles/detalles-list/detalles-list.component';
+import { AddDetalleComponent } from './components/detalles/add-detalle/add-detalle.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { DetallesListComponent } from './components/detalles/detalles-list/detal
     EdtMascotaComponent,
     DeleteMascotaComponent,
     CaluproductsListComponent,
-    DetallesListComponent
+    DetallesListComponent,
+    AddDetalleComponent
   ],
   imports: [
     BrowserModule,

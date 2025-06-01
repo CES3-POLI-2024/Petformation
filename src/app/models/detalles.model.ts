@@ -1,5 +1,5 @@
 export interface Detalle {
-    iD_DETALLE?: number;
+    iD_DETALLE?: string;
     timestamP_DETALLE?: Date;
     iD_VENTA?: string;
     cantidaD_DETALLE?: string;
